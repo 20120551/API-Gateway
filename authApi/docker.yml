@@ -13,7 +13,7 @@ services:
       - HOST=authapi-auth-api-1
       - PROTOCOL=http
       - MG_USERNAME=phuc
-      - MG_PASSWORD=authApi
+      - MG_PASSWORD=password
       - GATEWAY=gateway-gateway-1
       - RD_SECRET=secret
     networks:
@@ -23,7 +23,7 @@ services:
     restart: always
     environment:
       - MONGO_INITDB_ROOT_USERNAME=phuc
-      - MONGO_INITDB_ROOT_PASSWORD=authApi
+      - MONGO_INITDB_ROOT_PASSWORD=password
     volumes:
       - mongodb:/data/db
     networks:

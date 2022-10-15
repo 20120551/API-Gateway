@@ -13,8 +13,9 @@ services:
       - HOST=postapi-post-api-1
       - PROTOCOL=http
       - MG_USERNAME=phuc
-      - MG_PASSWORD=postApi
+      - MG_PASSWORD=password
       - GATEWAY=gateway-gateway-1
+      - COMMUNICATE=authapi-auth-api-1
     networks:
       - mynetwork
   mongo:
@@ -22,7 +23,7 @@ services:
     restart: always
     environment:
       - MONGO_INITDB_ROOT_USERNAME=phuc
-      - MONGO_INITDB_ROOT_PASSWORD=postApi
+      - MONGO_INITDB_ROOT_PASSWORD=password
     volumes:
       - mongodb:/data/db
     networks:

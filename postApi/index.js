@@ -8,7 +8,8 @@ const app = express();
 app.use(express.json({limit: "16mb"}));
 app.use(express.urlencoded({ limit: "16mb", extended: true, parameterLimit: 50000 }));
 
-const mongoUrl = process.env.MG_USERNAME === undefined ? process.env.MONGO_URL : `mongodb://${process.env.MG_USERNAME}:${process.env.MG_PASSWORD}@mongo:27017`;
+const mongoUrl = process.env.MG_USERNAME === undefined ? process.env.MONGO_URL : `mongodb://${process.env.MG_USERNAME}:${process.env.MG_PASSWORD}@mongo:27017/`;
+console.log(mongoUrl)
 mongoose.connect(mongoUrl)
     .then(()=>{
         console.log('mongo connecting succeed');

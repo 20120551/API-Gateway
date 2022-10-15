@@ -1,5 +1,1 @@
-{
-    "services": {
-        
-    }
-}
+{"services":{"authApi":{"index":0,"loadBalancer":"ROUND_ROBIN","instances":[{"apiName":"authApi","host":"localhost","port":3001,"url":"http://localhost:3001","isEnable":true},{"apiName":"authApi","host":"authapi-auth-api-1","port":3001,"url":"http://authapi-auth-api-1:3001","isEnable":true}]},"postApi":{"index":0,"loadBalancer":"ROUND_ROBIN","instances":[{"apiName":"postApi","host":"localhost","port":3002,"url":"http://localhost:3002","isEnable":true},{"apiName":"postApi","host":"postapi-post-api-1","port":3002,"url":"http://postapi-post-api-1:3002","isEnable":true}]}}}

@@ -49,7 +49,7 @@ router
             const _post = await post.save();
 
             //PUBLISH TO [AUTH SERVER]
-            const url = 'localhost'
+            const url = process.env.COMMUNICATE || 'localhost'
             await axios.post(`http://${url}:3000/authApi/event`, {
                 user: user,
                 post: _post,
@@ -113,7 +113,7 @@ router
             });
 
             //PUBLISH TO [AUTH SERVER]
-            const url = 'localhost'
+            const url = process.env.COMMUNICATE || 'localhost'
             await axios.post(`http://${url}:3000/authApi/event`, {
                 user: user,
                 event: 'LIKE_POST'
@@ -145,7 +145,7 @@ router
             });
 
             //PUBLISH TO [AUTH SERVER]
-            const url = 'localhost'
+            const url = process.env.COMMUNICATE || 'localhost'
             await axios.post(`http://${url}:3000/authApi/event`, {
                 user: user,
                 post:{
@@ -175,7 +175,7 @@ router
             await Post.deleteOne({_id: id});
 
             //PUBLISH TO [AUTH SERVER]
-            const url = 'localhost'
+            const url = process.env.COMMUNICATE || 'localhost'
             await axios.post(`http://${url}:3000/authApi/event`, {
                 user: user,
                 post: {

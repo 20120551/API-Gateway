@@ -33,7 +33,8 @@ router.post('/register', (req, res)=>{
                 apiName,
                 host,
                 port,
-                url
+                url,
+                isEnable: true
             })
         }
 
@@ -131,7 +132,6 @@ router.all('/:apiName/*', async(req, res)=>{
             url: instance.url + req.url,
             data: req.body
         })
-
         //login api has been call
         if( response.data.data &&  response.data.data.session) {
             res.cookie('session', response.data.data.session, {
