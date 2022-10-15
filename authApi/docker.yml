@@ -1,0 +1,40 @@
+version: '3'
+services:
+  auth-api:
+    build: .
+    ports: 
+      - "3001:3001"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - PORT=3001
+      - API_NAME=authApi
+      - HOST=authapi-auth-api-1
+      - PROTOCOL=http
+      - MG_USERNAME=phuc
+      - MG_PASSWORD=authApi
+      - GATEWAY=gateway-gateway-1
+      - RD_SECRET=secret
+    networks:
+      - mynetwork
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=phuc
+      - MONGO_INITDB_ROOT_PASSWORD=authApi
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - mynetwork
+  redis:
+    image: redis
+    networks:
+      - mynetwork
+volumes:
+  mongodb:
+networks:
+  mynetwork:
+    external: true
+  
