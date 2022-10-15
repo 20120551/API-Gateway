@@ -1,0 +1,35 @@
+version: '3'
+services:
+  post-api:
+    build: .
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - PORT=3002
+      - API_NAME=postApi
+      - HOST=postapi-post-api-1
+      - PROTOCOL=http
+      - MG_USERNAME=phuc
+      - MG_PASSWORD=postApi
+      - GATEWAY=gateway-gateway-1
+    networks:
+      - mynetwork
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=phuc
+      - MONGO_INITDB_ROOT_PASSWORD=postApi
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - mynetwork
+volumes:
+  mongodb:
+networks:
+  mynetwork:
+    external: true
+    
