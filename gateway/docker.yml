@@ -1,0 +1,14 @@
+version: '3'
+services:
+  gateway:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes: 
+      - ./:/app
+      - /app/node_modules
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
+    external: true
